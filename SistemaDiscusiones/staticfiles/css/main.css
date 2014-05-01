@@ -1,0 +1,165 @@
+.navbar-customize{
+	margin-bottom: 0;
+	border-radius: 0;
+	
+}
+
+.subtitulo-jumbotron{
+	color: rgb(182, 177, 177);
+}
+
+.container .jumbotron-customize{
+	border-radius: 0px;
+	margin-bottom: 0;
+	background-color: #F7F7F7;
+	color: #746C6C;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	margin-top: 1px;
+}
+
+.form-horizontal-customize{
+	margin-top: 60px;
+}
+
+.form-control-customize{
+	width: 190px;
+	margin-left: 20px; 
+}
+
+.login p{
+	margin-top: 40px;
+}
+
+.login h3{
+	color: black;
+}
+
+.btn-lg-customize-fb, .btn-lg-customize-tw{
+	border-radius: 0px;
+	border: 1px solid white;
+	width: 300px;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+
+.btn-lg-customize-fb{
+	background-color: rgb(60, 70, 146);
+}
+
+.btn-lg-customize-tw{
+	background-color: rgb(156, 140, 240);
+}
+
+.icon-facebook, .icon-twitter{
+	margin-right: 10px;
+}
+
+.contenido{
+	height: 500px;
+	padding-top: 20px; 
+}
+
+.contenido-bienvenida{
+	padding: 0;
+}
+
+.cab{
+	background-color: rgb(221, 235, 255);
+}
+
+.bloquesito{
+	border-left: 5px solid #8F8BEE;
+}
+
+.bg-info-customize{
+	width: 20%;
+	text-align: center;
+	display: inline-block;
+	margin: 0;
+	font-size: 0.8em;
+	color: rgb(156, 156, 156);
+}
+
+.bg-fecha-customize{
+	width: 25%;
+	font-size: 14px;
+	color: rgb(156, 156, 156);
+	background-color: white;
+	display: inline-block;
+	float: right;
+}
+
+.contenido-aside{
+	background-color: rgb(172, 208, 247);
+	height: 400px;
+}
+
+.badge-customize{
+	background-color: #A3E232;
+	border-radius: 2px;
+}
+
+.btn-pregunta{
+	background-color: rgb(243, 243, 51);
+	border: 1px solid #FFFFFF;
+	border-radius: 0px;
+	color: rgb(88, 84, 84);
+}
+
+.btn-pregunta:hover{
+	background-color: #323514;
+	border: 1px solid #d9edf7;
+}
+
+.top{
+	font-weight: bold;
+	font-size: 15px;
+	background-color: rgb(187, 235, 250);
+}
+
+.nav-pills{
+	border-bottom: 1px solid rgb(226, 222, 222); 
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.tags{
+	padding-left: 5px;
+	padding-top: 10px;
+}
+
+.tags span{
+	font-size: 14px;
+	color: rgb(156, 156, 156);
+}
+
+.pie-pagina{
+	background-color: black;
+	float: left;
+	width: 100%;
+}
+
+.btn-default{
+	background-color: #C5C5C5;
+	color: white;
+}
+
+.foto-perfil{
+	width: 35px; 
+	height: 35px;
+	border-radius: 2px;
+	border: 1px solid rgb(192, 178, 178);
+	margin-left: 5px;
+}
+
+.contenido-imagen-perfil .foto-perfil{
+	margin-left: 0;
+	width: 30px; 
+	height: 30px;
+}
+
+.navbar-right .padding-minus{
+	padding-top: 9px;
+}
+

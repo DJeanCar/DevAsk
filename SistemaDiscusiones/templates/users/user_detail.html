@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+ 		<div class="col-sm-6 col-md-4">
+ 		<br>
+			<div class="thumbnail">
+			      <img src="{{ user.avatar }}" data-src="holder.js/300x200" alt="...">
+			      <div class="caption">
+			        <h3>{{ user.username }}</h3>
+			        <p><b>Nombre:</b>{{ user.first_name }} {{ user.last_name }}</p>
+			        <p><b>Descripción:</b> Desarrollador Web orientado al FrotEnd, dominando tecnologías como JQuery, JavaScript, HTML5, CSS3, Responsive Web Design, y un poco de Backbone.js.</p>
+			        <p><b>Redes Sociales:</b></p>
+			        <p>
+			        	{% if facebook %}
+			        		<a href="http://fb.com/{{ facebook }}" class="btn btn-primary" role="button"><span class="icon-facebook"></span>Facebook</a>
+			        	{% endif %}
+			        	{% if twitter %}
+			        		<a href="http://twitter.com/{{ twitter }}" class="btn btn-primary" role="button"><span class="icon-twitter"></span>Twitter</a>	
+			        	{% endif %}
+			        	
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+		<div class="col-md-8">
+		<br>
+			<div class="panel panel-danger">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Preguntas Hechas en DevAsk</h3>
+
+			  </div>
+			  <div class="panel-body">
+			  	{% for question , tags in ques_tags %}
+			  		<h4>{{ question.title }}</h4>
+					<blockquote class="bloquesito">
+					  	<p class="bg-info bg-info-customize">Vistos <span>0</span></p>
+					  	<p class="bg-warning bg-info-customize">Respuestas <span>0</span></p>
+					  	<p class="bg-success bg-info-customize">Votos <span>0</span></p>
+					  	<p class="bg-success bg-fecha-customize">Publicado el: <span>{{ question.modified }}</span></p>
+					  	
+					  	<p class="tags">
+					  		<span>Etiquetas:</span>
+					  		{% for tag in tags %}
+					  			<button type="button" class="btn btn-default btn-xs">{{ tag.nombre }}</button>
+					  		{% endfor %}
+					    </p>
+					</blockquote>
+					<hr>
+			  	{% endfor %}
+			  			
+
+			  </div>
+			</div>
+
+			
+
+				
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %} Devask | Devcode.la{% endblock %}
+
+{% block profile %}
+	{% if user.is_authenticated %}
+		<ul class="nav navbar-nav navbar-right">
+			<li class="contenido-imagen-perfil">
+				<a href="#" class="padding-minus">
+					<img src="{{ user.avatar }}" class="foto-perfil">
+				</a>
+			</li>
+				      
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.username}} <b class="caret"></b></a>
+				        
+				<ul class="dropdown-menu">
+				    <li><a href="{% url 'users:user_detail' user.username %}">Perfil</a></li>
+				    <li class="divider"></li>
+				    <li><a href="{% url 'users:logout' %}">Salir <span class="glyphicon glyphicon-log-out"></span></a></li>
+				</ul>
+
+			</li>
+		</ul>
+	{% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+		<div class="row cab">
+			<div class="col-md-8 contenido-bienvenida">
+				<div class="jumbotron jumbotron-customize">
+				  <h1>Bienvenidos a DevAsk!</h1>
+				  <p class="subtitulo-jumbotron">El Sistema de Discusiones para Programadores</p>
+				  	<p>
+  						<a href="/preguntar/"><button type="button" class="btn btn-primary btn-lg btn-pregunta">Haz tu Pregunta!</button></a>
+  					</p>
+				</div>
+			</div>
+			<div class="col-md-4 login">
+				{% if user.is_authenticated %}
+					<h3>Asocia tu cuenta</h3>
+					<p>
+					{% ifequal backends.not_associated 'facebook'  %} 
+						<a href="{% url 'social:begin' 'twitter' %}" type="button" class="btn btn-primary btn-lg btn-lg-customize-tw"><span class="icon-twitter"></span>Twitter</a>
+					{% else %}
+						<a href="{% url 'social:begin' 'facebook' %}" type="button" class="btn btn-primary btn-lg btn-lg-customize-fb"><span class="icon-facebook"></span>Facebook</a>
+					{% endifequal %}
+					</p>
+				{% else %}
+					<h3>Conectate con:</h3>
+					<p>
+					  <a href="{% url 'social:begin' 'facebook' %}" type="button" class="btn btn-primary btn-lg btn-lg-customize-fb"><span class="icon-facebook"></span>Facebook</a>
+					  <a href="{% url 'social:begin' 'twitter' %}" type="button" class="btn btn-primary btn-lg btn-lg-customize-tw"><span class="icon-twitter"></span>Twitter</a>
+					</p>
+				{% endif %}
+
+					
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-8 contenido">
+				<ul class="nav nav-pills">
+				  <li class="top">
+				    <a href="#">
+				      Top 5 de Preguntas:
+				    </a>
+				  </li>
+				  <li class="top">
+				    <a href="/preguntas/">
+				      Ver todas las preguntas:
+				    </a>
+				  </li>
+				  <li >
+				    <a href="#">
+				      <span class="badge pull-right badge-customize">{{ total_questions }}</span>
+				      Preguntas
+				    </a>
+				  </li>
+				  <li >
+				    <a href="#">
+				      <span class="badge pull-right badge-customize">{{ total_users }}</span>
+				      Usuarios
+				    </a>
+				  </li>
+				  <li >
+				    <a href="#">
+				      <span class="badge pull-right badge-customize">42</span>
+				      Home
+				    </a>
+				  </li>
+				</ul>
+				
+				{% for question, tags in object_list %}
+					<h4><a href="/pregunta/{{ question.slug }}">{{ question.title }}</a> <small>{{ question.user}}</small><span><img src="{{ question.user.avatar }}" class="foto-perfil"></span></h4>
+					<blockquote class="bloquesito">
+					  <p class="bg-info bg-info-customize">Vistos <span>0</span></p>
+					  <p class="bg-warning bg-info-customize">Respuestas <span>0</span></p>
+					  <p class="bg-success bg-info-customize">Votos <span>0</span></p>
+					  <p class="bg-success bg-fecha-customize">Publicado el: <span>{{ question.modified }}</span></p>
+					  <p class="tags">
+					  	<span>Etiquetas:</span>
+					  	{% for tag in tags %}
+					  		<button type="button" class="btn btn-default btn-xs">{{ tag.nombre }}</button>	
+					  	{% endfor %}
+					  	
+					  </p>
+					</blockquote>	
+				{% endfor %}
+				
+
+				
+			</div>
+			<div class="col-md-4 contenido-aside" >
+				
+			</div>
+		</div>
+		
+	</div>
+
+{% endblock %}
